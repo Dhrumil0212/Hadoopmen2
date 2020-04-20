@@ -19,7 +19,7 @@ object Main extends App {
   println(fs.getWorkingDirectory)
   println("=======================================")
   fs
-    .listStatus(new Path("dhrumil/")) ///////////////////////////////// Number 2
+    .listStatus(new Path("/user/fall2019/dhrumil")) ///////////////////////////////// Number 2
     .map(_.getPath)
     .foreach(println)
   println("========================================")
@@ -37,31 +37,31 @@ object Main extends App {
 fs.delete((new Path("/user/fall2019/dhrumilAssignment")))
   /////////// Number 4.b
 
-  fs.mkdirs(new Path("/user/fall2019/dhrumilAssignment"))
+  fs.mkdirs(new Path("/user/fall2019/dhrumil"))
 /////// Number 4.c
-  if (fs.exists(new Path("/user/fall2019/dhrumilAssignment")))
+  if (fs.exists(new Path("/user/fall2019/dhrumil")))
        println("Folder Created")
   else println("Unable to create the folder")
 ///////////// Number 4.d
   println("========================================")
 
-  fs.mkdirs(new Path("/user/fall2019/dhrumilAssignment/stm"))
-  if (fs.exists(new Path("/user/fall2019/dhrumilAssignment/stm")))
+  fs.mkdirs(new Path("/user/fall2019/dhrumil/stm"))
+  if (fs.exists(new Path("/user/fall2019/dhrumil/stm")))
        println("Folder Created")
   else println("Unable to create the folder")
 //////////// Number 4.e
   println("========================================")
 
-  fs.copyFromLocalFile(new Path("/home/bd-user/Desktop/gtfs_stm/stops.txt"), new Path("/user/fall2019/dhrumilAssignment/stm"))
+  fs.copyFromLocalFile(new Path("/home/bd-user/Desktop/gtfs_stm/stops.txt"), new Path("/user/fall2019/dhrumil/stm"))
  //////////// Number 4.f
-  fs.copyFromLocalFile(new Path("/home/bd-user/Desktop/gtfs_stm/stops.txt"), new Path("/user/fall2019/dhrumilAssignment/stm/stops2.txt"))
+  fs.copyFromLocalFile(new Path("/home/bd-user/Desktop/gtfs_stm/stops.txt"), new Path("/user/fall2019/dhrumil/stm/stops2.txt"))
   ///////////// Number 4.g
 
 
-  fs.rename(new Path("/user/fall2019/dhrumilAssignment/stm/stops2.txt"), new Path("/user/fall2019/dhrumilAssignment/stm/stops.csv"))
+  fs.rename(new Path("/user/fall2019/dhrumil/stm/stops2.txt"), new Path("/user/fall2019/dhrumil/stm/stops.csv"))
 ////////////// Number 4.h
 
-  val inputStream: FSDataInputStream = fs.open(new Path("/user/fall2019/dhrumilAssignment/stm/stops.csv"))
+  val inputStream: FSDataInputStream = fs.open(new Path("/user/fall2019/dhrumil/stm/stops.csv"))
   val data: String = IOUtils.toString(inputStream)
   data.split("\n").slice(0, 5).foreach(println)
 
